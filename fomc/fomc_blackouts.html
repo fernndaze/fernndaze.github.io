@@ -56,7 +56,7 @@
   strong { font-weight: 650; }
 
   /* ---- timeline strip (the hero) ---- */
-  .strip { margin: 0 0 var(--space-2); }
+  .strip { margin: 0 0 var(--space-2); position: relative; padding-top: 12px; }
   .track {
     position: relative; height: 40px;
     background: var(--surface); border: 1px solid var(--border);
@@ -83,16 +83,10 @@
   }
   .months span { text-align: center; }
   .todaymark {
-    position: absolute; top: 0; bottom: 0; width: 3px;
-    background: var(--text); border-radius: 2px;
-    box-shadow: 0 0 0 1px var(--bg);
-    transform: translateX(-1px);
-  }
-  .todaymark::after {
-    content: "today"; position: absolute; top: 1px; left: 50%;
-    transform: translateX(-50%); font-size: 9px; font-weight: 700;
-    color: var(--text); background: var(--bg); padding: 0 4px;
-    white-space: nowrap;
+    position: absolute; top: 0; width: 12px; height: 8px;
+    background: var(--text);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform: translateX(-6px);
   }
   .legend { color: var(--text-2); font-size: var(--fs-meta); margin: 0 0 var(--space-4);
     display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); }
@@ -113,7 +107,8 @@
   .tbl tbody tr:last-child td { border-bottom: 0; }
   .tbl td.win { white-space: nowrap; }
   .tbl .sub { color: var(--text-2); }
-  .tbl td.nums { text-align: right; white-space: nowrap; }
+  .tbl th:last-child, .tbl td.nums { text-align: center; }
+  .tbl td.nums { white-space: nowrap; }
   .tbl tr.past td, .tbl tr.past .sub { color: var(--past-text); }
   .sepmark { color: var(--text-2); font-size: 9px; vertical-align: 2px; }
 
@@ -135,13 +130,13 @@
   </header>
 
   <h2 id="y2026">2026</h2>
-  <div class="strip"><div class="track" data-year="2026"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band past" style="left:4.384%;width:3.562%"></div><div class="band past" style="left:17.808%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:29.315%;width:3.562%"></div><div class="band past" style="left:42.74%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:54.247%;width:3.562%"></div><div class="band" style="left:67.671%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:79.178%;width:3.562%"></div><div class="band" style="left:90.685%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:2.055%">16</div><div class="gapnum" style="left:12.7395%">36</div><div class="gapnum" style="left:25.2055%">29</div><div class="gapnum" style="left:37.6715%">36</div><div class="gapnum" style="left:50.137%">29</div><div class="gapnum" style="left:62.602500000000006%">36</div><div class="gapnum" style="left:75.0685%">29</div><div class="gapnum" style="left:86.5755%">29</div><div class="gapnum" style="left:96.9865%">21</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
+  <div class="strip" data-year="2026"><div class="track"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band past" style="left:4.384%;width:3.562%"></div><div class="band past" style="left:17.808%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:29.315%;width:3.562%"></div><div class="band past" style="left:42.74%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:54.247%;width:3.562%"></div><div class="band" style="left:67.671%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:79.178%;width:3.562%"></div><div class="band" style="left:90.685%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:2.055%">16</div><div class="gapnum" style="left:12.7395%">36</div><div class="gapnum" style="left:25.2055%">29</div><div class="gapnum" style="left:37.6715%">36</div><div class="gapnum" style="left:50.137%">29</div><div class="gapnum" style="left:62.602500000000006%">36</div><div class="gapnum" style="left:75.0685%">29</div><div class="gapnum" style="left:86.5755%">29</div><div class="gapnum" style="left:96.9865%">21</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
   <p class="legend"><span><span class="key"></span> blackout, 13 days</span><span>number = clear days on either side</span><span><span class="dotkey"></span> corner dot = SEP meeting</span><span>dimmed = past</span></p>
   <table class="tbl"><thead><tr><th>Blackout</th><th>Meeting</th><th>Clear weekdays</th></tr></thead><tbody><tr class="past"><td class="win">Jan 17–Jan 29</td><td>Jan 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr class="past"><td class="win">Mar 7–Mar 19</td><td>Mar 17–18 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr class="past"><td class="win">Apr 18–Apr 30</td><td>Apr 28–29<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr class="past"><td class="win">Jun 6–Jun 18</td><td>Jun 16–17 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr class="past"><td class="win">Jul 18–Jul 30</td><td>Jul 28–29<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Sep 5–Sep 17</td><td>Sep 15–16 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Oct 17–Oct 29</td><td>Oct 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Nov 28–Dec 10</td><td>Dec 8–9 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr></tbody></table>
   <p class="note">Clear weekdays = Mon–Fri days from this window's end to the next window's start (crosses year boundaries). 2026 totals: 104 blackout days, 261 clear.</p>
 
   <h2 id="y2027">2027</h2>
-  <div class="strip"><div class="track" data-year="2027"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band" style="left:4.11%;width:3.562%"></div><div class="band" style="left:17.534%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:29.041%;width:3.562%"></div><div class="band" style="left:40.548%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:53.973%;width:3.562%"></div><div class="band" style="left:67.397%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:78.904%;width:3.562%"></div><div class="band" style="left:90.411%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:1.918%">15</div><div class="gapnum" style="left:12.4655%">36</div><div class="gapnum" style="left:24.9315%">29</div><div class="gapnum" style="left:36.438500000000005%">29</div><div class="gapnum" style="left:48.9045%">36</div><div class="gapnum" style="left:62.328500000000005%">36</div><div class="gapnum" style="left:74.7945%">29</div><div class="gapnum" style="left:86.3015%">29</div><div class="gapnum" style="left:96.8495%">22</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
+  <div class="strip" data-year="2027"><div class="track"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band" style="left:4.11%;width:3.562%"></div><div class="band" style="left:17.534%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:29.041%;width:3.562%"></div><div class="band" style="left:40.548%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:53.973%;width:3.562%"></div><div class="band" style="left:67.397%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:78.904%;width:3.562%"></div><div class="band" style="left:90.411%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:1.918%">15</div><div class="gapnum" style="left:12.4655%">36</div><div class="gapnum" style="left:24.9315%">29</div><div class="gapnum" style="left:36.438500000000005%">29</div><div class="gapnum" style="left:48.9045%">36</div><div class="gapnum" style="left:62.328500000000005%">36</div><div class="gapnum" style="left:74.7945%">29</div><div class="gapnum" style="left:86.3015%">29</div><div class="gapnum" style="left:96.8495%">22</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
   <p class="legend"><span><span class="key"></span> blackout, 13 days</span><span>number = clear days on either side</span><span><span class="dotkey"></span> corner dot = SEP meeting</span><span>dimmed = past</span></p>
   <table class="tbl"><thead><tr><th>Blackout</th><th>Meeting</th><th>Clear weekdays</th></tr></thead><tbody><tr><td class="win">Jan 16–Jan 28</td><td>Jan 26–27<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Mar 6–Mar 18</td><td>Mar 16–17 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Apr 17–Apr 29</td><td>Apr 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">May 29–Jun 10</td><td>Jun 8–9 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Jul 17–Jul 29</td><td>Jul 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Sep 4–Sep 16</td><td>Sep 14–15 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Oct 16–Oct 28</td><td>Oct 26–27<br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Nov 27–Dec 9</td><td>Dec 7–8 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr></tbody></table>
   <p class="note">Clear weekdays = Mon–Fri days from this window's end to the next window's start (crosses year boundaries). 2027 totals: 104 blackout days, 261 clear.</p>
@@ -207,14 +202,14 @@
   }
   line.style.display = "block";
   var yr = now.getFullYear();
-  var track = document.querySelector('.track[data-year="' + yr + '"]');
-  if (track) {
+  var strip = document.querySelector('.strip[data-year="' + yr + '"]');
+  if (strip) {
     var leap = (yr % 4 === 0 && (yr % 100 !== 0 || yr % 400 === 0));
     var doy = Math.round((t - Date.UTC(yr, 0, 1)) / 864e5);
     var m = document.createElement("div");
-    m.className = "todaymark";
+    m.className = "todaymark";          // triangle, lives in the lane above the track
     m.style.left = (doy / (leap ? 366 : 365) * 100) + "%";
-    track.appendChild(m);
+    strip.appendChild(m);
   }
 })();
 </script>
