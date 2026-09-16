@@ -41,6 +41,12 @@
   header.top { padding: var(--space-5) 0 var(--space-4); }
   header.top h1 { font-size: var(--fs-h1); line-height: 1.2; margin: 0 0 var(--space-2); text-wrap: balance; }
   header.top p.sub { color: var(--text-2); font-size: var(--fs-meta); margin: 0; }
+  p#nowline {
+    display: none;                      /* revealed by the script below */
+    background: var(--accent); color: var(--accent-contrast);
+    border-radius: var(--radius-s); padding: var(--space-2) var(--space-3);
+    margin: var(--space-3) 0 0; font-weight: 650;
+  }
   h2 {
     font-size: var(--fs-h2); line-height: 1.25; margin: var(--space-6) 0 var(--space-3);
     padding-top: var(--space-4); border-top: 3px solid var(--accent);
@@ -76,6 +82,18 @@
     margin-top: var(--space-1);
   }
   .months span { text-align: center; }
+  .todaymark {
+    position: absolute; top: 0; bottom: 0; width: 3px;
+    background: var(--text); border-radius: 2px;
+    box-shadow: 0 0 0 1px var(--bg);
+    transform: translateX(-1px);
+  }
+  .todaymark::after {
+    content: "today"; position: absolute; top: 1px; left: 50%;
+    transform: translateX(-50%); font-size: 9px; font-weight: 700;
+    color: var(--text); background: var(--bg); padding: 0 4px;
+    white-space: nowrap;
+  }
   .legend { color: var(--text-2); font-size: var(--fs-meta); margin: 0 0 var(--space-4);
     display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); }
   .legend .key { display: inline-block; width: 18px; height: 10px;
@@ -113,19 +131,20 @@
     on monetary policy: from the second Saturday before each FOMC meeting through the
     Thursday after it. Scheduled economic data (CPI, NFP, PCE) still releases inside
     every window. Times are US Eastern.</p>
+    <p id="nowline" aria-live="polite"></p>
   </header>
 
   <h2 id="y2026">2026</h2>
-  <div class="strip"><div class="track"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band past" style="left:4.384%;width:3.562%"></div><div class="band past" style="left:17.808%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:29.315%;width:3.562%"></div><div class="band past" style="left:42.74%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:54.247%;width:3.562%"></div><div class="band" style="left:67.671%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:79.178%;width:3.562%"></div><div class="band" style="left:90.685%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:2.055%">16</div><div class="gapnum" style="left:12.7395%">36</div><div class="gapnum" style="left:25.2055%">29</div><div class="gapnum" style="left:37.6715%">36</div><div class="gapnum" style="left:50.137%">29</div><div class="gapnum" style="left:62.602500000000006%">36</div><div class="gapnum" style="left:75.0685%">29</div><div class="gapnum" style="left:86.5755%">29</div><div class="gapnum" style="left:96.9865%">21</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
+  <div class="strip"><div class="track" data-year="2026"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band past" style="left:4.384%;width:3.562%"></div><div class="band past" style="left:17.808%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:29.315%;width:3.562%"></div><div class="band past" style="left:42.74%;width:3.562%"><span class="sepdot"></span></div><div class="band past" style="left:54.247%;width:3.562%"></div><div class="band" style="left:67.671%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:79.178%;width:3.562%"></div><div class="band" style="left:90.685%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:2.055%">16</div><div class="gapnum" style="left:12.7395%">36</div><div class="gapnum" style="left:25.2055%">29</div><div class="gapnum" style="left:37.6715%">36</div><div class="gapnum" style="left:50.137%">29</div><div class="gapnum" style="left:62.602500000000006%">36</div><div class="gapnum" style="left:75.0685%">29</div><div class="gapnum" style="left:86.5755%">29</div><div class="gapnum" style="left:96.9865%">21</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
   <p class="legend"><span><span class="key"></span> blackout, 13 days</span><span>number = clear days on either side</span><span><span class="dotkey"></span> corner dot = SEP meeting</span><span>dimmed = past</span></p>
-  <table class="tbl"><thead><tr><th>Blackout</th><th>Meeting</th><th>Minutes</th><th>Clear after</th></tr></thead><tbody><tr class="past"><td class="win">Jan 17–Jan 29</td><td>Jan 27–28<br><span class="sub">decision 2 PM</span></td><td>Feb 18</td><td class="nums">36 / 26</td></tr><tr class="past"><td class="win">Mar 7–Mar 19</td><td>Mar 17–18 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Apr 8</td><td class="nums">29 / 21</td></tr><tr class="past"><td class="win">Apr 18–Apr 30</td><td>Apr 28–29<br><span class="sub">decision 2 PM</span></td><td>May 20</td><td class="nums">36 / 26</td></tr><tr class="past"><td class="win">Jun 6–Jun 18</td><td>Jun 16–17 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Jul 8</td><td class="nums">29 / 21</td></tr><tr class="past"><td class="win">Jul 18–Jul 30</td><td>Jul 28–29<br><span class="sub">decision 2 PM</span></td><td>Aug 19</td><td class="nums">36 / 26</td></tr><tr><td class="win">Sep 5–Sep 17</td><td>Sep 15–16 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Oct 7 <em>exp.</em></td><td class="nums">29 / 21</td></tr><tr><td class="win">Oct 17–Oct 29</td><td>Oct 27–28<br><span class="sub">decision 2 PM</span></td><td>Nov 18 <em>exp.</em></td><td class="nums">29 / 21</td></tr><tr><td class="win">Nov 28–Dec 10</td><td>Dec 8–9 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Dec 30 <em>exp.</em></td><td class="nums">21 / 15</td></tr></tbody></table>
-  <p class="note">Clear after = calendar days / weekdays between this window and the next. Minutes always land inside a clear stretch — three weeks after the decision — so the gap is not event-free. 2026 totals: 104 blackout days, 261 clear.</p>
+  <table class="tbl"><thead><tr><th>Blackout</th><th>Meeting</th><th>Clear weekdays</th></tr></thead><tbody><tr class="past"><td class="win">Jan 17–Jan 29</td><td>Jan 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr class="past"><td class="win">Mar 7–Mar 19</td><td>Mar 17–18 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr class="past"><td class="win">Apr 18–Apr 30</td><td>Apr 28–29<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr class="past"><td class="win">Jun 6–Jun 18</td><td>Jun 16–17 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr class="past"><td class="win">Jul 18–Jul 30</td><td>Jul 28–29<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Sep 5–Sep 17</td><td>Sep 15–16 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Oct 17–Oct 29</td><td>Oct 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Nov 28–Dec 10</td><td>Dec 8–9 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr></tbody></table>
+  <p class="note">Clear weekdays = Mon–Fri days from this window's end to the next window's start (crosses year boundaries). 2026 totals: 104 blackout days, 261 clear.</p>
 
   <h2 id="y2027">2027</h2>
-  <div class="strip"><div class="track"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band" style="left:4.11%;width:3.562%"></div><div class="band" style="left:17.534%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:29.041%;width:3.562%"></div><div class="band" style="left:40.548%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:53.973%;width:3.562%"></div><div class="band" style="left:67.397%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:78.904%;width:3.562%"></div><div class="band" style="left:90.411%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:1.918%">15</div><div class="gapnum" style="left:12.4655%">36</div><div class="gapnum" style="left:24.9315%">29</div><div class="gapnum" style="left:36.438500000000005%">29</div><div class="gapnum" style="left:48.9045%">36</div><div class="gapnum" style="left:62.328500000000005%">36</div><div class="gapnum" style="left:74.7945%">29</div><div class="gapnum" style="left:86.3015%">29</div><div class="gapnum" style="left:96.8495%">22</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
+  <div class="strip"><div class="track" data-year="2027"><div class="mline" style="left:8.219%"></div><div class="mline" style="left:15.89%"></div><div class="mline" style="left:24.384%"></div><div class="mline" style="left:32.603%"></div><div class="mline" style="left:41.096%"></div><div class="mline" style="left:49.315%"></div><div class="mline" style="left:57.808%"></div><div class="mline" style="left:66.301%"></div><div class="mline" style="left:74.521%"></div><div class="mline" style="left:83.014%"></div><div class="mline" style="left:91.233%"></div><div class="band" style="left:4.11%;width:3.562%"></div><div class="band" style="left:17.534%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:29.041%;width:3.562%"></div><div class="band" style="left:40.548%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:53.973%;width:3.562%"></div><div class="band" style="left:67.397%;width:3.562%"><span class="sepdot"></span></div><div class="band" style="left:78.904%;width:3.562%"></div><div class="band" style="left:90.411%;width:3.562%"><span class="sepdot"></span></div><div class="gapnum" style="left:1.918%">15</div><div class="gapnum" style="left:12.4655%">36</div><div class="gapnum" style="left:24.9315%">29</div><div class="gapnum" style="left:36.438500000000005%">29</div><div class="gapnum" style="left:48.9045%">36</div><div class="gapnum" style="left:62.328500000000005%">36</div><div class="gapnum" style="left:74.7945%">29</div><div class="gapnum" style="left:86.3015%">29</div><div class="gapnum" style="left:96.8495%">22</div></div><div class="months" aria-hidden="true"><span style="flex:31 1 0">J</span><span style="flex:28 1 0">F</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">A</span><span style="flex:31 1 0">M</span><span style="flex:30 1 0">J</span><span style="flex:31 1 0">J</span><span style="flex:31 1 0">A</span><span style="flex:30 1 0">S</span><span style="flex:31 1 0">O</span><span style="flex:30 1 0">N</span><span style="flex:31 1 0">D</span></div></div>
   <p class="legend"><span><span class="key"></span> blackout, 13 days</span><span>number = clear days on either side</span><span><span class="dotkey"></span> corner dot = SEP meeting</span><span>dimmed = past</span></p>
-  <table class="tbl"><thead><tr><th>Blackout</th><th>Meeting</th><th>Minutes</th><th>Clear after</th></tr></thead><tbody><tr><td class="win">Jan 16–Jan 28</td><td>Jan 26–27<br><span class="sub">decision 2 PM</span></td><td>Feb 17 <em>exp.</em></td><td class="nums">36 / 26</td></tr><tr><td class="win">Mar 6–Mar 18</td><td>Mar 16–17 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Apr 7 <em>exp.</em></td><td class="nums">29 / 21</td></tr><tr><td class="win">Apr 17–Apr 29</td><td>Apr 27–28<br><span class="sub">decision 2 PM</span></td><td>May 19 <em>exp.</em></td><td class="nums">29 / 21</td></tr><tr><td class="win">May 29–Jun 10</td><td>Jun 8–9 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Jun 30 <em>exp.</em></td><td class="nums">36 / 26</td></tr><tr><td class="win">Jul 17–Jul 29</td><td>Jul 27–28<br><span class="sub">decision 2 PM</span></td><td>Aug 18 <em>exp.</em></td><td class="nums">36 / 26</td></tr><tr><td class="win">Sep 4–Sep 16</td><td>Sep 14–15 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Oct 6 <em>exp.</em></td><td class="nums">29 / 21</td></tr><tr><td class="win">Oct 16–Oct 28</td><td>Oct 26–27<br><span class="sub">decision 2 PM</span></td><td>Nov 17 <em>exp.</em></td><td class="nums">29 / 21</td></tr><tr><td class="win">Nov 27–Dec 9</td><td>Dec 7–8 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td>Dec 29 <em>exp.</em></td><td class="nums">22 / 16</td></tr></tbody></table>
-  <p class="note">Clear after = calendar days / weekdays between this window and the next. Minutes always land inside a clear stretch — three weeks after the decision — so the gap is not event-free. 2027 totals: 104 blackout days, 261 clear.</p>
+  <table class="tbl"><thead><tr><th>Blackout</th><th>Meeting</th><th>Clear weekdays</th></tr></thead><tbody><tr><td class="win">Jan 16–Jan 28</td><td>Jan 26–27<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Mar 6–Mar 18</td><td>Mar 16–17 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Apr 17–Apr 29</td><td>Apr 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">May 29–Jun 10</td><td>Jun 8–9 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Jul 17–Jul 29</td><td>Jul 27–28<br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr><tr><td class="win">Sep 4–Sep 16</td><td>Sep 14–15 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Oct 16–Oct 28</td><td>Oct 26–27<br><span class="sub">decision 2 PM</span></td><td class="nums">21</td></tr><tr><td class="win">Nov 27–Dec 9</td><td>Dec 7–8 <span class="sepmark">●</span><br><span class="sub">decision 2 PM</span></td><td class="nums">26</td></tr></tbody></table>
+  <p class="note">Clear weekdays = Mon–Fri days from this window's end to the next window's start (crosses year boundaries). 2027 totals: 104 blackout days, 261 clear.</p>
 
   <h2 id="y2028">2028</h2>
   <p>First window only so far: <strong>Jan 15 to Jan 27, 2028</strong> (meeting Jan 25–26, decision Jan 26). The Fed publishes the full calendar around October of the year before.</p>
@@ -134,16 +153,70 @@
     <h3>Sources and updates</h3>
     <ul>
       <li>Federal Reserve, <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">FOMC meeting calendars</a> — dates verified 2026-09-16.</li>
-      <li>Minutes release three weeks after each decision; future dates marked <em>exp.</em> are expected, not yet confirmed.</li>
       <li>2027 and 2028 meeting dates are tentative until confirmed at the meeting before.</li>
       <li>When the Fed revises dates, this page and the subscribed calendar are rebuilt and re-pushed; both update themselves on the phone.</li>
     </ul>
   </section>
 
   <footer class="pie">
-    <p>Every window is 13 days, Saturday to Thursday. Minutes land outside them;
-    the speaker chorus resumes the day a window lifts.</p>
+    <p>Every window is 13 days, Saturday to Thursday. The speaker chorus
+    resumes the day a window lifts.</p>
   </footer>
 </main>
+<script>
+/* Today pointer — the single deliberate exception to the zero-JS house rule
+   (owner-requested): without JS the page is exactly as rendered statically;
+   with JS it adds the "today" marker + the in-or-out-of-blackout status line. */
+(function () {
+  var W = [{"s":"2026-01-17","e":"2026-01-29"},{"s":"2026-03-07","e":"2026-03-19"},{"s":"2026-04-18","e":"2026-04-30"},{"s":"2026-06-06","e":"2026-06-18"},{"s":"2026-07-18","e":"2026-07-30"},{"s":"2026-09-05","e":"2026-09-17"},{"s":"2026-10-17","e":"2026-10-29"},{"s":"2026-11-28","e":"2026-12-10"},{"s":"2027-01-16","e":"2027-01-28"},{"s":"2027-03-06","e":"2027-03-18"},{"s":"2027-04-17","e":"2027-04-29"},{"s":"2027-05-29","e":"2027-06-10"},{"s":"2027-07-17","e":"2027-07-29"},{"s":"2027-09-04","e":"2027-09-16"},{"s":"2027-10-16","e":"2027-10-28"},{"s":"2027-11-27","e":"2027-12-09"},{"s":"2028-01-15","e":"2028-01-27"}];
+  var now = new Date();
+  var t = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  function parse(s) { return Date.parse(s + "T00:00:00Z"); }
+  function weekdaysUntil(endMs) {
+    var n = 0;
+    for (var d = t; d < endMs; d += 864e5) {
+      var dw = new Date(d).getUTCDay();
+      if (dw >= 1 && dw <= 5) n++;
+    }
+    return n;
+  }
+  var DAY = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function fd(iso) {
+    var d = new Date(parse(iso));
+    return DAY[d.getUTCDay()] + " " + MON[d.getUTCMonth()] + " " + d.getUTCDate();
+  }
+  var line = document.getElementById("nowline");
+  var inW = null, next = null;
+  for (var i = 0; i < W.length; i++) {
+    var s = parse(W[i].s), e = parse(W[i].e);
+    if (t >= s && t <= e) { inW = W[i]; break; }
+    if (t < s) { next = W[i]; break; }
+  }
+  if (inW) {
+    var left = Math.round((parse(inW.e) - t) / 864e5);
+    line.textContent = "In a blackout window now — ends " + fd(inW.e) +
+      (left > 0 ? " (" + left + " day" + (left > 1 ? "s" : "") + " left)" : " (ends today)");
+  } else if (next) {
+    var cal = Math.round((parse(next.s) - t) / 864e5);
+    var wd = weekdaysUntil(parse(next.s));
+    line.textContent = "Not in a blackout — next starts " + fd(next.s) +
+      " (" + wd + " weekdays, " + cal + " days from now)";
+  } else {
+    line.textContent = "Past the last known window — this calendar needs a rebuild.";
+  }
+  line.style.display = "block";
+  var yr = now.getFullYear();
+  var track = document.querySelector('.track[data-year="' + yr + '"]');
+  if (track) {
+    var leap = (yr % 4 === 0 && (yr % 100 !== 0 || yr % 400 === 0));
+    var doy = Math.round((t - Date.UTC(yr, 0, 1)) / 864e5);
+    var m = document.createElement("div");
+    m.className = "todaymark";
+    m.style.left = (doy / (leap ? 366 : 365) * 100) + "%";
+    track.appendChild(m);
+  }
+})();
+</script>
 </body>
 </html>
